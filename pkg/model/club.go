@@ -1,4 +1,4 @@
-package club
+package model
 
 type Member struct {
 	Name  string `db:"name"`
