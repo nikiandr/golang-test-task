@@ -7,8 +7,11 @@ import (
 	"syscall"
 
 	"github.com/jmoiron/sqlx"
+	_ "github.com/lib/pq"
+	"github.com/nikiandr/golang-test-task/pkg/handler"
 	"github.com/nikiandr/golang-test-task/pkg/repository"
 	"github.com/nikiandr/golang-test-task/pkg/server"
+	"github.com/nikiandr/golang-test-task/pkg/service"
 	"github.com/sirupsen/logrus"
 )
 

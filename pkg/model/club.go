@@ -1,6 +1,13 @@
 package model
 
 type Member struct {
-	Name  string `db:"name"`
-	Email string `db:"email"`
+	Id        int    `db:"id"`
+	Name      string `db:"name"`
+	Email     string `db:"email"`
+	CreatedAt string `db:"created_at"`
+}
+
+type MemberInput struct {
+	Name  string
+	Email string
 }

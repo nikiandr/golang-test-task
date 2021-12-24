@@ -1,3 +1,1 @@
-BEGIN;
 DROP TABLE members;
-COMMIT;

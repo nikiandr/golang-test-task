@@ -7,7 +7,7 @@ import (
 
 type Member interface {
 	GetAllMembers() ([]model.Member, error)
-	CreateMember(member model.Member) (int, error)
+	CreateMember(member model.MemberInput) (int, error)
 	DeleteMember(memberId int) error
 }
 
