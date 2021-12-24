@@ -2,6 +2,7 @@ package repository
 
 import (
 	"fmt"
+	"strings"
 
 	"github.com/jmoiron/sqlx"
 	"github.com/nikiandr/golang-test-task/pkg/model"
@@ -37,6 +38,12 @@ func (r *MemberPostgres) GetAllMembers() ([]model.Member, error) {
 		return []model.Member{}, err
 	}
 
+	//Used to truncate last T...Z part
+	//Example:
+	//2021-12-24T00:00:00Z -> 2021-12-24
+	for i := 0; i < len(members); i++ {
+		members[i].CreatedAt = strings.Split(members[i].CreatedAt, "T")[0]
+	}
 	return members, nil
 }
 
