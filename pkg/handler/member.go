@@ -12,7 +12,7 @@ func (h *Handler) renderMainPage(c *gin.Context) {
 		NewErrorResponse(c, http.StatusInternalServerError, err.Error())
 		return
 	}
-	c.HTML(http.StatusOK, "assets/html/main.html", memberList)
+	c.HTML(http.StatusOK, "/assets/html/main.html", memberList)
 }
 
 /* func (h *Handler) createMember(c *gin.Context) {
