@@ -1,10 +1,10 @@
 package model
 
 type Member struct {
-	Id        int    `db:"id"`
-	Name      string `db:"name"`
-	Email     string `db:"email"`
-	CreatedAt string `db:"created_at"`
+	Id        int
+	Name      string `form:"name" binding:"required"`
+	Email     string `form:"email" binding:"required"`
+	CreatedAt string
 }
 
 type MemberInput struct {
