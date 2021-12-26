@@ -5,38 +5,45 @@
     <title>Test Task</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/main.css">
-    <script src="assets/js/main.js"></script>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
     <h1>Welcome to the Club!</h1>
     <h3>New member</h3>
-    <form action="javascript:void(0);" name="memberForm">
+    <form method="post" name="memberForm">
         <div class="field">
             <label>Name:</label>
-            <input type="text" id="name" name="name" required/>
+            <input type="text" name="name" />
         </div>
         <div class="field">
             <label>Email:</label>
-            <input type="text" id="email" name="email" required/>
+            <input type="text" name="email" />
         </div>
         <div class="field">
             <label></label>
-            <input type="submit" value="Add" onclick="return addField();">
+            <input type="submit" value="Add">
             <input type="reset" value="Clear">
         </div>
     </form>
     <center>
         <h3>Members</h3>
     </center>
-    <table id="members" class="table table-bordered">
+    <table>
         <tr>
             <th>#</th>
             <th>Name</th>
             <th>Email</th>
             <th>Registration date</th>
         </tr>
+        {{ range .members}}
+        <tr>
+            <td>{{ .Id}}</td>
+            <td>{{ .Name}}</td>
+            <td>{{ .Email}}</td>
+            <td>{{ .CreatedAt}}</td>
+        </tr>
+        {{ end}}
     </table>
 </body>
 

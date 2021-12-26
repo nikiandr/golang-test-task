@@ -1,19 +1,25 @@
 package handler
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
+	"github.com/nikiandr/golang-test-task/pkg/service"
 )
 
-func InitRoutes() *gin.Engine {
+type Handler struct {
+	services *service.Service
+}
+
+func NewHandler(services *service.Service) *Handler {
+	return &Handler{services: services}
+}
+
+func (h *Handler) InitRoutes() *gin.Engine {
 	router := gin.New()
 
 	router.LoadHTMLGlob("assets/html/*")
-	router.Static("/assets", "./assets")
+	router.Static("/css", "../assets/css")
+	router.GET("/", h.renderMainPage)
+	// router.POST("/add", h.createMember)
 
-	router.GET("/", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "main.html", nil)
-	})
 	return router
 }
