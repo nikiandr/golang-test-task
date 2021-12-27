@@ -12,9 +12,6 @@ import (
 )
 
 func main() {
-	//setting up logger JSON format
-	logrus.SetFormatter(new(logrus.JSONFormatter))
-
 	srv := new(server.Server)
 	go func() {
 		if err := srv.Run(os.Getenv("PORT"), handler.InitRoutes()); err != nil {

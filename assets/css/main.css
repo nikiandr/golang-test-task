@@ -18,3 +18,7 @@ table.table{
     margin-left: auto;
     margin-right: auto;
 }
+
+h4.error {
+    color: red;
+}
