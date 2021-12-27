@@ -40,7 +40,7 @@ func InitRoutes() *gin.Engine {
 		}
 		if !unique_email {
 			c.HTML(http.StatusBadRequest, "main.html", gin.H{
-				"error":   "This email already exists.",
+				"error":   "User with this email already exists.",
 				"members": members_data,
 			})
 		} else {
